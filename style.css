@@ -113,3 +113,7 @@
 .navigation button:hover {
   transform: scale(1.1);
 }
+
+.navigation .action-btn i {
+  color: white;
+}

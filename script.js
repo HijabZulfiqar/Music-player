@@ -23,8 +23,21 @@ const play = document.getElementById('play');
 const progressContainer = document.getElementById('progress-container');
 const progress = document.getElementById('progress');
 
+const playIcon = document.getElementById('play-icon');
+
+
 let currentIndex = 0; // Initialize the index to 0
 let isPlaying = false;
+function updatePlayIcon() {
+  if (isPlaying) {
+    playIcon.classList.remove('fa-play');
+    playIcon.classList.add('fa-pause');
+  } else {
+    playIcon.classList.remove('fa-pause');
+    playIcon.classList.add('fa-play');
+  }
+}
+
 // Function to render the current item at the given index
 function render() {
   const currentItem = data[currentIndex];
@@ -46,23 +59,27 @@ render();
 next.addEventListener('click', function () {
   currentIndex = (currentIndex + 1);  // Update the index for the next item
   isPlaying = true;
+  // updatePlayIcon();
   render(); // Render the next item % data.length
 });
 
 prev.addEventListener('click', function () {
   currentIndex = (currentIndex -1) ; // Update the index for the next item
   isPlaying = true;
+  // updatePlayIcon();
   render(); // Render the next item % data.length
 });
 play.addEventListener('click', function () {
   if (isPlaying) {
-    // If it's playing, pause the audio and set isPlaying to false
     audio.pause();
     isPlaying = false;
+    playIcon.classList.remove('fa-pause');
+    playIcon.classList.add('fa-play');
   } else {
-    // If it's not playing, start the audio and set isPlaying to true
     audio.play();
     isPlaying = true;
+    playIcon.classList.remove('fa-play');
+    playIcon.classList.add('fa-pause');
   }
 });
 audio.addEventListener('timeupdate', function () {
@@ -70,6 +87,7 @@ audio.addEventListener('timeupdate', function () {
   const duration = audio.duration;
   const progressPercentage = (currentTime / duration) * 100;
   progress.style.width = `${progressPercentage}%`;
+  updatePlayIcon();
 });
 progressContainer.addEventListener('click', function (e) {
   const clickX = e.offsetX;
