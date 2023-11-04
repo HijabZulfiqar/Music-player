@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body style="background-image: url(./images/bg.jpg);">
+  <div class="main">
+    <div id="card" class="card">
+      <div class="inner-div">
+        <img id="alb-img" src="" alt="Album cover">
+        <div class="song-info">
+          <h1 class="song-title"></h1>
+          <p class="artist-name"></p>
+          <div class="progress-container" id="progress-container">
+            <div class="progress" id="progress"></div>
+          </div>
+        </div>
+        <audio src=""  id="audio"></audio>
+        <!-- controllers-->
+        <div class="navigation">
+          <button id="prev" class="action-btn">
+           <img src="./images/Stop_and_play_fill.svg">
+          </button>
+         
+          <div class="play-button-container">
+            <button id="play" class="action-btn action-btn-big">
+              <img src="./images/Play_fill.svg">
+            </button>
+          </div>
+          <button id="next" class="action-btn">
+           <img src="./images/Stop_and_play_fill_reverse.svg">
+          </button>
+        </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
